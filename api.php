@@ -55,7 +55,9 @@ $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
 
 $array = array(
     "original-url" => $result[0]["original"],
-    "short-url" => $base_url . dec2dohex((int)$result[0]["short"])
+    "short-url" => $base_url . dec2dohex((int)$result[0]["short"]),
+    "base-url" => $base_url,
+    "short" => dec2dohex((int)$result[0]["short"])
 );
 header("Content-Type: application/json; charset=utf-8");
 echo json_encode($array);
